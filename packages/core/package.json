@@ -1,6 +1,6 @@
 {
   "name": "@inksnow-cli-dev/core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "inksnow-cli-dev core",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "",
@@ -10,8 +10,8 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "bin":{
-    "inksnow-cli-dev":"bin/index.js"
+  "bin": {
+    "inksnow-cli-dev": "bin/index.js"
   },
   "files": [
     "lib"
