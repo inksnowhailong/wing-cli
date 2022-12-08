@@ -1,0 +1,22 @@
+{
+  "name": "@inksnow-cli-dev/core",
+  "version": "1.0.0",
+  "description": "inksnow-cli-dev core",
+  "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/core.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "node ./__tests__/core.test.js"
+  },
+  "dependencies": {
+    "@inksnow-cli-dev/utils":"^1.0.0"
+  }
+}
