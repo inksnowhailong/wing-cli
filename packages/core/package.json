@@ -1,6 +1,6 @@
 {
   "name": "@inksnow-cli-dev/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "inksnow-cli-dev core",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "",
@@ -17,6 +17,6 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@inksnow-cli-dev/utils":"^1.0.0"
+    "@inksnow-cli-dev/utils": "^1.0.1"
   }
 }
