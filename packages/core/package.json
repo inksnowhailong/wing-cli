@@ -20,7 +20,7 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@inksnow-cli-dev/utils": "^1.0.3"
+    "@inksnow-cli-dev/utils": "file:../utils"
   },
   "gitHead": "558b0485b030cc44c2ff34839dc445dca298803d",
   "publishConfig": {
