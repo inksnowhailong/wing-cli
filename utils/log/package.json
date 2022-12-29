@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/log",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "wing-cli log",
   "keywords": [
     "log"
