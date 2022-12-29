@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "wing-cli core",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "",
@@ -21,7 +21,7 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@wing-cli/log":"file:../../utils/log",
+    "@wing-cli/log": "file:../../utils/log",
     "@wing-cli/utils": "file:../../utils/utils",
     "import-local": "^3.1.0",
     "npmlog": "^7.0.1"
