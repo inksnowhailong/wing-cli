@@ -1,7 +1,7 @@
 {
-  "name": "inksnow-cli-dev",
+  "name": "wing-cli",
   "version": "1.0.0",
-  "description": "inksnow-cli dev",
+  "description": "项目开发的僚机，为开发者提供项目的开发服务",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

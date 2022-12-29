@@ -1,7 +1,7 @@
 {
-  "name": "@inksnow-cli-dev/utils",
-  "version": "1.0.3",
-  "description": "inksnow-cli-dev utils",
+  "name": "@wing-cli/utils",
+  "version": "1.0.0",
+  "description": "wing-cli utils",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "",
   "license": "ISC",

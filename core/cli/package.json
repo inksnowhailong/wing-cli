@@ -1,7 +1,7 @@
 {
-  "name": "@inksnow-cli-dev/core",
-  "version": "1.0.3",
-  "description": "inksnow-cli-dev core",
+  "name": "@wing-cli/core",
+  "version": "1.0.0",
+  "description": "wing-cli core",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "",
   "license": "ISC",
@@ -11,7 +11,8 @@
     "test": "__tests__"
   },
   "bin": {
-    "inksnow-cli-dev": "bin/index.js"
+    "wing-cli": "bin/index.js",
+    "ikdev": "bin/index.js"
   },
   "files": [
     "lib"
@@ -20,7 +21,10 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@inksnow-cli-dev/utils": "file:../utils"
+    "@wing-cli/log":"file:../../utils/log",
+    "@wing-cli/utils": "file:../../utils/utils",
+    "import-local": "^3.1.0",
+    "npmlog": "^7.0.1"
   },
   "gitHead": "558b0485b030cc44c2ff34839dc445dca298803d",
   "publishConfig": {
