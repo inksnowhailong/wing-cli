@@ -1,10 +1,7 @@
 {
-  "name": "@wing-cli/log",
+  "name": "@wing-cli/get-npm-info",
   "version": "1.0.3",
-  "description": "wing-cli log",
-  "keywords": [
-    "log"
-  ],
+  "description": "get-npm-info",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "https://github.com/inksnowhailong/wing-cli#readme",
   "license": "ISC",
@@ -17,19 +14,21 @@
     "lib"
   ],
   "publishConfig": {
-    "access": "public"
+    "registry": "https://registry.npm.taobao.org/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inksnowhailong/wing-cli.git"
   },
   "scripts": {
-    "test": "node ./__tests__/@wing-cli/log.test.js"
+    "test": "node ./__tests__/get-npm-info.test.js"
   },
   "bugs": {
     "url": "https://github.com/inksnowhailong/wing-cli/issues"
   },
   "dependencies": {
-    "npmlog": "^7.0.1"
+    "axios": "^1.2.2",
+    "semver": "^7.3.8",
+    "url-join": "^5.0.0"
   }
 }

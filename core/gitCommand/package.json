@@ -1,10 +1,7 @@
 {
-  "name": "@wing-cli/log",
+  "name": "@wing-cli/git-command",
   "version": "1.0.3",
-  "description": "wing-cli log",
-  "keywords": [
-    "log"
-  ],
+  "description": "命令工具核心",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "https://github.com/inksnowhailong/wing-cli#readme",
   "license": "ISC",
@@ -17,19 +14,20 @@
     "lib"
   ],
   "publishConfig": {
-    "access": "public"
+    "registry": "https://registry.npm.taobao.org/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inksnowhailong/wing-cli.git"
   },
   "scripts": {
-    "test": "node ./__tests__/@wing-cli/log.test.js"
+    "test": "node ./__tests__/commands.test.js"
   },
   "bugs": {
     "url": "https://github.com/inksnowhailong/wing-cli/issues"
   },
   "dependencies": {
-    "npmlog": "^7.0.1"
+    "@wing-cli/log": "file:../../utils/log",
+    "commander": "^10.0.0"
   }
 }
