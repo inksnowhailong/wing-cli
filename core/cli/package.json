@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/core",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "wing-cli core",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "",
@@ -21,10 +21,10 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@wing-cli/get-npm-info": "file:../../utils/get-npm-info",
-    "@wing-cli/git-command": "file:../gitCommand",
-    "@wing-cli/log": "file:../../utils/log",
-    "@wing-cli/utils": "file:../../utils/utils",
+    "@wing-cli/get-npm-info": "^1.0.4",
+    "@wing-cli/git-command": "^1.0.4",
+    "@wing-cli/log": "^1.0.4",
+    "@wing-cli/utils": "^1.0.4",
     "colors": "^1.4.0",
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",
@@ -35,7 +35,7 @@
     "semver": "^7.3.8",
     "user-home": "^3.0.0"
   },
-  "gitHead": "558b0485b030cc44c2ff34839dc445dca298803d",
+  "gitHead": "ac7496d8d15da04b51a315bc182a707368eb5fb3",
   "publishConfig": {
     "access": "public"
   }
