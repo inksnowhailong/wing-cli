@@ -10,15 +10,16 @@ function gitCommand(program) {
   program
     .command("Gpush <commit>")
     .description("一次性 拉取并推送远程库,出问题会报错")
-    .action((argv) => {
-      if (!argv) {
+    .action((commit) => {
+      if (!commit) {
         return log.error("必须指定commit内容");
       }
+      log.info(commit);
       // 连续运行命令
       execFunc([
         "git pull",
         "git add .",
-        `git commit -m '${argv.commit}'`,
+        `git commit -m '${commit}'`,
         "git push",
       ]);
     })
