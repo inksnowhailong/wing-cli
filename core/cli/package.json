@@ -25,6 +25,7 @@
     "@wing-cli/git-command": "^1.0.3",
     "@wing-cli/log": "^1.0.3",
     "@wing-cli/utils": "^1.0.3",
+    "@wing-cli/folder-create": "file:./../../utils/folder-create",
     "colors": "^1.4.0",
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",
@@ -35,7 +36,7 @@
     "semver": "^7.3.8",
     "user-home": "^3.0.0"
   },
-  "gitHead": "6c126275f03a500b2a6546061da23a6a72b4c752",
+  "gitHead": "a567f7b2d6baf05d66c9b07d3c555879f929d220",
   "publishConfig": {
     "access": "public"
   }
