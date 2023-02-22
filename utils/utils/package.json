@@ -17,7 +17,8 @@
     "test": "node ./__tests__/utils.test.js"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "d4e2c35b2644e77faa392beb222afbbfd22a23d3"
+  "gitHead": "3f610373be44d7006733d65f40d78c10f270029a"
 }

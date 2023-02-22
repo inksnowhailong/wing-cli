@@ -14,6 +14,7 @@
     "lib"
   ],
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "repository": {
@@ -30,5 +31,5 @@
     "@wing-cli/log": "^1.0.6",
     "commander": "^10.0.0"
   },
-  "gitHead": "d4e2c35b2644e77faa392beb222afbbfd22a23d3"
+  "gitHead": "3f610373be44d7006733d65f40d78c10f270029a"
 }

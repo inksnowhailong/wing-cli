@@ -1,6 +1,6 @@
 {
   "name": "wing-cli",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "项目开发的僚机，为开发者提供项目的开发服务",
   "main": "core/cli/bin/index.js",
   "scripts": {
