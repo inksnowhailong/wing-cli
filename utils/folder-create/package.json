@@ -1,11 +1,11 @@
 {
-  "name": "@wing-cli/git-command",
+  "name": "@wing-cli/folder-create",
   "version": "1.0.3",
-  "description": "命令工具核心",
+  "description": "目录模板快速创建",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "https://github.com/inksnowhailong/wing-cli#readme",
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "lib",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -13,22 +13,18 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+  "dependencies": {
+    "@wing-cli/log": "file:../log",
+    "dedent": "^0.7.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inksnowhailong/wing-cli.git"
   },
   "scripts": {
-    "test": "node ./__tests__/commands.test.js"
+    "test": "node ./__tests__/folderCreate.test.js"
   },
   "bugs": {
     "url": "https://github.com/inksnowhailong/wing-cli/issues"
-  },
-  "dependencies": {
-    "@wing-cli/log": "^1.0.3",
-    "commander": "^10.0.0"
-  },
-  "gitHead": "a567f7b2d6baf05d66c9b07d3c555879f929d220"
+  }
 }
