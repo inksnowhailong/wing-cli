@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/folder-create",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "目录模板快速创建",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "https://github.com/inksnowhailong/wing-cli#readme",
@@ -14,7 +14,7 @@
     "lib"
   ],
   "dependencies": {
-    "@wing-cli/log": "file:../log",
+    "@wing-cli/log": "^1.0.5",
     "dedent": "^0.7.0"
   },
   "repository": {
@@ -26,5 +26,6 @@
   },
   "bugs": {
     "url": "https://github.com/inksnowhailong/wing-cli/issues"
-  }
+  },
+  "gitHead": "7034280c3e6e913558dec73f55d3024a8c413a02"
 }
