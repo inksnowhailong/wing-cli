@@ -1,7 +1,7 @@
 {
   "name": "@wing-cli/core",
-  "version": "1.0.5",
-  "description": "wing-cli core",
+  "version": "1.0.6",
+  "description": "项目开发的僚机，为开发者提供项目的开发服务",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "",
   "license": "ISC",
@@ -21,11 +21,11 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@wing-cli/folder-create": "^1.0.5",
-    "@wing-cli/get-npm-info": "^1.0.5",
-    "@wing-cli/git-command": "^1.0.5",
-    "@wing-cli/log": "^1.0.5",
-    "@wing-cli/utils": "^1.0.5",
+    "@wing-cli/folder-create": "^1.0.6",
+    "@wing-cli/get-npm-info": "^1.0.6",
+    "@wing-cli/git-command": "^1.0.6",
+    "@wing-cli/log": "^1.0.6",
+    "@wing-cli/utils": "^1.0.6",
     "colors": "^1.4.0",
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",
@@ -36,7 +36,7 @@
     "semver": "^7.3.8",
     "user-home": "^3.0.0"
   },
-  "gitHead": "7034280c3e6e913558dec73f55d3024a8c413a02",
+  "gitHead": "d4e2c35b2644e77faa392beb222afbbfd22a23d3",
   "publishConfig": {
     "access": "public"
   }

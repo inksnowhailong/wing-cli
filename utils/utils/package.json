@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/utils",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "wing-cli utils",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "",
@@ -19,5 +19,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "7034280c3e6e913558dec73f55d3024a8c413a02"
+  "gitHead": "d4e2c35b2644e77faa392beb222afbbfd22a23d3"
 }
