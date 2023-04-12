@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/core",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "项目开发的僚机，为开发者提供项目的开发服务",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "",
@@ -21,10 +21,10 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@wing-cli/get-npm-info": "^1.0.6",
-    "@wing-cli/git-command": "^1.0.6",
-    "@wing-cli/log": "^1.0.6",
-    "@wing-cli/utils": "^1.0.6",
+    "@wing-cli/get-npm-info": "^1.0.7",
+    "@wing-cli/git-command": "^1.0.7",
+    "@wing-cli/log": "^1.0.7",
+    "@wing-cli/utils": "^1.0.7",
     "@wing-cli/vscode-debugger": "file:../vscode-debugger",
     "colors": "^1.4.0",
     "commander": "^10.0.0",
