@@ -21,11 +21,11 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@wing-cli/folder-create": "^1.0.6",
     "@wing-cli/get-npm-info": "^1.0.6",
     "@wing-cli/git-command": "^1.0.6",
     "@wing-cli/log": "^1.0.6",
     "@wing-cli/utils": "^1.0.6",
+    "@wing-cli/vscode-debugger": "file:../vscode-debugger",
     "colors": "^1.4.0",
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",
@@ -37,7 +37,6 @@
     "user-home": "^3.0.0"
   },
   "gitHead": "3f610373be44d7006733d65f40d78c10f270029a",
-
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

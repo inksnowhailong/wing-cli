@@ -1,36 +1,29 @@
 {
-  "name": "@wing-cli/folder-create",
+  "name": "@wing-cli/vscode-debugger",
   "version": "1.0.6",
-  "description": "目录模板快速创建",
+  "description": "vscode 功能设置",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "https://github.com/inksnowhailong/wing-cli#readme",
   "license": "ISC",
-  "main": "lib",
+  "main": "lib/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
+  "dependencies": {
+    "@wing-cli/log": "file:../../utils/log"
+  },
   "files": [
     "lib"
   ],
-  "dependencies": {
-    "@wing-cli/log": "^1.0.6",
-    "dedent": "^0.7.0",
-    "inquirer": "^8.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inksnowhailong/wing-cli.git"
   },
   "scripts": {
-    "test": "node ./__tests__/folderCreate.test.js"
+    "test": "node ./__tests__/vscode-debugger.test.js"
   },
   "bugs": {
     "url": "https://github.com/inksnowhailong/wing-cli/issues"
-  },
-  "gitHead": "3f610373be44d7006733d65f40d78c10f270029a",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
   }
 }

@@ -1,23 +1,44 @@
 "use strict";
 const log = require("@wing-cli/log");
 const fs = require("fs");
+const inquirer = require("inquirer");
 const dedent = require("dedent");
 module.exports = foldercreate;
 
 function foldercreate(program) {
   program
-    .command("folderCreate [template] [name]")
+    .command("folderCreate")
     .description("按模板 一次性创建文件目录")
     .option("--list", "输出所有可用模板")
-    .action((template, name, option) => {
+    .action(async (option) => {
       if (option.list) {
         return alltemplate();
       }
+      const questions = [
+        {
+          type: "list",
+          name: "template",
+          message: "请选择你要创建的模板",
+          choices: Object.keys(templates).map((key) => {
+            templates[key];
+            return {
+              name: key,
+              value: key,
+              short: templates[key].desc,
+            };
+          }),
+        },
+        {
+          type: "input",
+          name: "name",
+          message: "输入文件夹名：",
+        },
+      ];
+
+      const { template, name } = await inquirer.prompt(questions);
+
       if (!template) {
         return log.error("必须指定模板");
-      }
-      if (!templates[template]) {
-        return alltemplate();
       }
       if (!name) {
         return log.error("必须指定名字");
@@ -25,7 +46,7 @@ function foldercreate(program) {
       if (fs.existsSync(process.cwd() + "\\" + name)) {
         return log.error("文件夹已存在");
       }
-      //   创建
+      // //   创建
       templates[template].created(process.cwd(), name);
       log.success("创建成功");
     })
