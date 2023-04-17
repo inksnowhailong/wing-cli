@@ -54,8 +54,9 @@ function foldercreate(program) {
 }
 
 const templates = {
-  v3view: {
-    desc: "vue3+vite+ts+setup的view模板，由index.vue和hook目录构成",
+  // TODO 改为复制文件的模式 建立文件模板
+  v3viewMin: {
+    desc: "vue3+vite+ts+setup的view模板精简版本，由index.vue和hook目录构成",
     created(cwd, name) {
       const basePath = cwd + "\\" + name;
       fs.mkdirSync(basePath);
@@ -78,6 +79,59 @@ const templates = {
       createAndWrite(
         `${basePath}\\hook\\index.ts`,
         dedent`export const data = {}`
+      );
+    },
+  },
+  v3view: {
+    desc: "vue3+vite+ts+setup的view模板，由index.vue和hook目录构成",
+    created(cwd, name) {
+      const basePath = cwd + "\\" + name;
+      fs.mkdirSync(basePath);
+      createAndWrite(
+        `${basePath}\\index.vue`,
+        dedent`<script setup lang="ts">
+
+      </script>
+      <template>
+
+        <div class="${name}"></div>
+
+      </template>
+      <style lang="less" scoped>
+
+      </style>
+      `
+      );
+      fs.mkdirSync(`${basePath}\\hook`);
+      createAndWrite(
+        `${basePath}\\hook\\modal.ts`,
+        dedent`import { DataUpdate } from "./service";
+        import { dataType } from "./type";
+        //  testData
+        export const data = reactive<dataType>({
+          value: "",
+          update: DataUpdate,
+        });
+        `
+      );
+      createAndWrite(
+        `${basePath}\\hook\\service.ts`,
+        dedent`/**
+        * @description: 数据更新函数
+        * @param {string} val
+        * @return {*}
+        */
+       export function DataUpdate(val: string) {
+         this.value = val;
+       }
+       `
+      );
+      createAndWrite(
+        `${basePath}\\hook\\type.d.ts`,
+        dedent`export interface dataType{
+          value:string
+          update:(...agr:any)=>void
+        }`
       );
     },
   },

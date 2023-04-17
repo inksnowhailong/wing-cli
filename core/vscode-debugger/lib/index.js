@@ -42,4 +42,5 @@ function initLaunch() {
   if (!fs.existsSync(launchPath)) {
     fs.writeFile(launchPath);
   }
+
 }

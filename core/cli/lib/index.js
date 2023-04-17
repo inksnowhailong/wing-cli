@@ -116,6 +116,12 @@ async function checkEnv() {
   log.verbose("环境变量", config || "未检测到.env文件");
 }
 
+/*******
+ * @npm @wing-cli/get-npm-info 获取npm上库信息
+ * @npm semver 对比版本号
+ * @npm log 输出内容
+ * @return {*}
+ */
 async function checkGlobalUpdate() {
   // 获取当前版本号和库名
   const currentVersion = pkg.version;
