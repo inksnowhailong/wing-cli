@@ -56,7 +56,7 @@ function foldercreate(program) {
 const templates = {
   // TODO 改为复制文件的模式 建立文件模板
   v3viewMin: {
-    desc: "vue3+vite+ts+setup的view模板精简版本，由index.vue和hook目录构成",
+    desc: "vue3+vite+ts+setup的view模板精简版本，由index.vue和hook目录构成，用于极其简单的功能",
     created(cwd, name) {
       const basePath = cwd + "\\" + name;
       fs.mkdirSync(basePath);
@@ -105,33 +105,43 @@ const templates = {
       fs.mkdirSync(`${basePath}\\hook`);
       createAndWrite(
         `${basePath}\\hook\\modal.ts`,
-        dedent`import { DataUpdate } from "./service";
-        import { dataType } from "./type";
-        //  testData
-        export const data = reactive<dataType>({
-          value: "",
-          update: DataUpdate,
-        });
+        dedent`/*
+        NOTE 只放数据：js原始数据、ref，reactive，computed响应式数据
+       */
+       import { dataType } from './type'
+       //  testData
+       export const data = reactive<dataType>({
+         value: ''
+       })
         `
       );
       createAndWrite(
         `${basePath}\\hook\\service.ts`,
-        dedent`/**
+        dedent`/*
+        NOTE 只放函数，包含逻辑功能和业务功能
+       */
+
+       import { data } from './modal'
+
+       /**
         * @description: 数据更新函数
         * @param {string} val
         * @return {*}
         */
        export function DataUpdate(val: string) {
-         this.value = val;
+         data.value = val
        }
        `
       );
       createAndWrite(
         `${basePath}\\hook\\type.d.ts`,
-        dedent`export interface dataType{
-          value:string
-          update:(...agr:any)=>void
-        }`
+        dedent`/*
+        NOTE 只放TS类型，除了基础类型外的类型
+      */
+      export interface dataType {
+        value: string
+      }
+      `
       );
     },
   },

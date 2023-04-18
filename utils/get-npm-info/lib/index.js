@@ -29,7 +29,7 @@ async function getNpmInfo(npmName, registry) {
     });
 }
 // 获取默认 npm远程地址
-function getDefaultRegistry(isOriginal = false) {
+function getDefaultRegistry(isOriginal = true) {
   // 判断是否原生
   return isOriginal
     ? "https://registry.npmjs.org"

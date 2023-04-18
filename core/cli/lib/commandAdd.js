@@ -12,5 +12,5 @@ function commandAdd(program) {
   // 目录模板快速创建
   folderCreate(program);
   // vscode 配置生成
-  vscodeDebugger(program);
+  // vscodeDebugger(program);
 }
