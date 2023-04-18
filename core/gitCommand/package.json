@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/git-command",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "命令工具核心",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "https://github.com/inksnowhailong/wing-cli#readme",
