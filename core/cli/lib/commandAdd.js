@@ -2,7 +2,7 @@
 // 使用commander来注册脚手架  比 yargs更简洁
 const gitCommand = require("@wing-cli/git-command");
 const folderCreate = require("@wing-cli/folder-create");
-const vscodeDebugger = require("@wing-cli/vscode-debugger");
+// const vscodeDebugger = require("@wing-cli/vscode-debugger");
 const { checkVersionCommand } = require("@wing-cli/get-npm-info");
 module.exports = commandAdd;
 

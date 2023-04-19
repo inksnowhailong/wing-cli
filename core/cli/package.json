@@ -21,12 +21,12 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@wing-cli/folder-create": "file:../../utils/folder-create",
+    "@wing-cli/folder-create": "^1.0.10",
     "@wing-cli/get-npm-info": "^1.0.10",
     "@wing-cli/git-command": "^1.0.10",
     "@wing-cli/log": "^1.0.10",
     "@wing-cli/utils": "^1.0.10",
-    "@wing-cli/vscode-debugger": "file:../vscode-debugger",
+    "@wing-cli/vscode-debugger": "^1.0.10",
     "colors": "^1.4.0",
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",
