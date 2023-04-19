@@ -16,7 +16,8 @@
   "dependencies": {
     "@wing-cli/log": "^1.0.7",
     "dedent": "^0.7.0",
-    "inquirer": "^8.0.0"
+    "inquirer": "^8.0.0",
+    "read-pkg-up": "7"
   },
   "repository": {
     "type": "git",

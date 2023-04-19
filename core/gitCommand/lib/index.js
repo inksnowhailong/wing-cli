@@ -6,7 +6,6 @@ const log = require("@wing-cli/log");
 module.exports = gitCommand;
 
 function gitCommand(program) {
-  // const gitCommand = new commander.Command("git");
   program
     .command("Gpush [commit]")
     .description("一次性 拉取并推送远程库,出问题会报错")
@@ -43,17 +42,4 @@ function execFunc(codes) {
       execFunc(codes.slice(1));
     }
   );
-}
-async function checkGlobalUpdate(npmName, currentVersion) {
-  // 获取所有 版本号
-  const { getNpmSemverVersion } = require("@wing-cli/get-npm-info");
-  const lastVersion = await getNpmSemverVersion(currentVersion, npmName);
-  // 对比并提示更新
-  if (lastVersion && semver.gt(lastVersion, currentVersion)) {
-    log.warn(
-      `当前最新版为${lastVersion}`,
-      `当前版本为${currentVersion},请手动更新到最新版本`
-    );
-    log.info("版本更新命令:", colors.yellow(`npm i -g ${npmName}`));
-  }
 }

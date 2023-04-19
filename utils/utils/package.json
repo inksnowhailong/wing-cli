@@ -20,5 +20,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "3f610373be44d7006733d65f40d78c10f270029a"
+  "gitHead": "3f610373be44d7006733d65f40d78c10f270029a",
+  "dependencies": {
+    "find-up": "^4",
+    "read-pkg-up": "7"
+  }
 }

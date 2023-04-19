@@ -31,7 +31,8 @@
     "url": "https://github.com/inksnowhailong/wing-cli/issues"
   },
   "dependencies": {
-    "npmlog": "^7.0.1"
+    "npmlog": "^7.0.1",
+    "read-pkg-up": "7"
   },
   "gitHead": "3f610373be44d7006733d65f40d78c10f270029a"
 }
