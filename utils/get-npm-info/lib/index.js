@@ -83,9 +83,9 @@ async function checkVersionCommand(program) {
     .command("checkNpmVersion")
     .description("检查当前目录下的pkg 并选择要检查哪些包的更新")
     .action(async () => {
-      (async () => {
-        console.log(await readPkgUp());
-      })();
+      const { dependencies, devDependencies } = await readPkgUp();
+      console.log("dependencies :>> ", dependencies);
+      console.log("devDependencies :>> ", devDependencies);
     })
     .alias("cnv");
 }
