@@ -26,6 +26,7 @@
     "@wing-cli/log": "^1.0.7",
     "@wing-cli/utils": "^1.0.7",
     "@wing-cli/vscode-debugger": "file:../vscode-debugger",
+    "@wing-cli/folder-create": "file:../../utils/folder-create",
     "colors": "^1.4.0",
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",
@@ -33,6 +34,7 @@
     "minimist": "^1.2.7",
     "npmlog": "^7.0.1",
     "pkg-dir": "^7.0.0",
+    "read-pkg-up": "7",
     "semver": "^7.3.8",
     "user-home": "^3.0.0"
   },

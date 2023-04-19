@@ -3,6 +3,7 @@
 const gitCommand = require("@wing-cli/git-command");
 const folderCreate = require("@wing-cli/folder-create");
 const vscodeDebugger = require("@wing-cli/vscode-debugger");
+const { checkVersionCommand } = require("@wing-cli/get-npm-info");
 module.exports = commandAdd;
 
 function commandAdd(program) {
@@ -13,4 +14,6 @@ function commandAdd(program) {
   folderCreate(program);
   // vscode 配置生成
   // vscodeDebugger(program);
+  // 版本工具
+  checkVersionCommand(program);
 }
