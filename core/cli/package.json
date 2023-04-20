@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/core",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "项目开发的僚机，为开发者提供项目的开发服务",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "",
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@wing-cli/folder-create": "^1.0.10",
-    "@wing-cli/get-npm-info": "^1.0.10",
+    "@wing-cli/get-npm-info": "^1.0.11",
     "@wing-cli/git-command": "^1.0.10",
     "@wing-cli/log": "^1.0.10",
     "@wing-cli/utils": "^1.0.10",
