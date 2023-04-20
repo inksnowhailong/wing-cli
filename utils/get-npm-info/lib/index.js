@@ -12,7 +12,9 @@ const axios = require("axios");
 const urljoinImp = import("url-join");
 const semver = require("semver");
 const readPkgUp = require("read-pkg-up");
-
+const inquirer = require("inquirer");
+const colors = require("colors");
+const { execSync, exec, execFile } = require("child_process");
 // 获取 npm包在npm网中的信息
 async function getNpmInfo(npmName, registry) {
   if (!npmName) return null;
@@ -33,7 +35,7 @@ async function getNpmInfo(npmName, registry) {
     });
 }
 // 获取默认 npm远程地址
-function getDefaultRegistry(isOriginal = true) {
+function getDefaultRegistry(isOriginal = false) {
   // 判断是否原生
   return isOriginal
     ? "https://registry.npmjs.org"
@@ -69,7 +71,10 @@ async function getNpmSemverVersion(baseVersion, npmName, registry) {
 async function checkNpmVersion(npmName, currentVersion) {
   // 获取所有 版本号
   const lastVersion = await getNpmSemverVersion(currentVersion, npmName);
-  return lastVersion && semver.gt(lastVersion, currentVersion);
+  if (lastVersion && semver.gt(lastVersion, currentVersion)) {
+    return [npmName, lastVersion];
+  }
+  return false;
   /*
     log.warn(
       `当前最新版为${lastVersion}`,
@@ -80,12 +85,72 @@ async function checkNpmVersion(npmName, currentVersion) {
 }
 async function checkVersionCommand(program) {
   program
-    .command("checkNpmVersion")
+    .command("npmUpdate")
     .description("检查当前目录下的pkg 并选择要检查哪些包的更新")
     .action(async () => {
-      const { dependencies, devDependencies } = await readPkgUp();
-      console.log("dependencies :>> ", dependencies);
-      console.log("devDependencies :>> ", devDependencies);
+      const {
+        packageJson: { dependencies, devDependencies },
+      } = await readPkgUp();
+
+      const allPkg = { ...dependencies, ...devDependencies };
+      const { updateList } = await inquirer.prompt([
+        {
+          type: "checkbox",
+          name: "updateList",
+          message: "请选择要检查更新的所有包",
+          choices: [
+            new inquirer.Separator(colors.blue("vvv==开发依赖==vvv")),
+            ...Object.keys(dependencies || {}),
+            new inquirer.Separator(colors.blue("vvv==运行依赖==vvv")),
+            ...Object.keys(devDependencies || {}),
+          ].map((key) => {
+            return {
+              name: key,
+              value: key,
+              short: [key] + "==>" + allPkg[key] + "\t",
+            };
+          }),
+        },
+      ]);
+      // 全部的promise
+      const allCheck = updateList.map((npmItem) => {
+        return checkNpmVersion(
+          npmItem,
+          allPkg[npmItem].replace("^", "").replace("~", "")
+        );
+      });
+      const allCheckRes = await axios.all(allCheck);
+      const needUpdate = new Map(allCheckRes.filter((i) => i));
+      // 预备命令
+      let updateCommand = "npm update --save ";
+      console.log(colors.blue(`需要更新的node包：`));
+
+      // 输出提示
+      for (const [key, version] of needUpdate) {
+        console.log(`${key} ==>>  ${version}`);
+        updateCommand += key + "";
+      }
+
+      const { confirm } = await inquirer.prompt([
+        {
+          type: "confirm",
+          name: "confirm",
+          message: "确定要更新这些包吗",
+        },
+      ]);
+      if (confirm) {
+        exec(
+          updateCommand,
+          {
+            cwd: process.cwd(),
+            // timeout: 1,
+            encoding: "utf8",
+          },
+          (error, stdout, stderr) => {
+            console.log(colors.green("更新中=========>"));
+          }
+        );
+      }
     })
-    .alias("cnv");
+    .alias("up");
 }

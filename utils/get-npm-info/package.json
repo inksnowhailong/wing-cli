@@ -29,6 +29,8 @@
   },
   "dependencies": {
     "axios": "^1.2.2",
+    "colors": "^1.4.0",
+    "inquirer": "^8.2.5",
     "read-pkg-up": "^7.0.1",
     "semver": "^7.3.8",
     "url-join": "^5.0.0"
