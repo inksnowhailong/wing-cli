@@ -21,25 +21,29 @@ async function getNpmInfo(npmName, registry) {
   const { default: urljoin } = await urljoinImp;
   const registryUrl = registry || getDefaultRegistry();
   const npmInfoUrl = urljoin(registryUrl, npmName);
-  return axios
-    .get(npmInfoUrl, {
-      timeout: 10000,
-    })
-    .then((res) => {
-      if (res.status !== 200) return null;
-      return res.data;
-    })
-    .catch((err) => {
-      Promise.reject(err);
-      return false;
-    });
+  try {
+    return axios
+      .get(npmInfoUrl, {
+        timeout: 10000,
+      })
+      .then((res) => {
+        if (res.status !== 200) return null;
+        return res.data;
+      })
+      .catch((err) => {
+        console.log("err.message :>> ", err.response?.data?.error);
+        return false;
+      });
+  } catch (error) {
+    console.log("error :>> ", error);
+    // colors.red('请求失败，')
+  }
 }
 // 获取默认 npm远程地址
 function getDefaultRegistry(isOriginal = false) {
   // 判断是否原生
-  return isOriginal
-    ? "https://registry.npmjs.org"
-    : "https://registry.npm.taobao.org";
+  const registryUrl = execSync("npm config get registry").toString().trim();
+  return isOriginal ? "https://registry.npmjs.org" : registryUrl;
 }
 // 获取 所有版本
 async function getNpmVersion(npmName, registry) {
@@ -54,7 +58,7 @@ async function getNpmVersion(npmName, registry) {
 function getSemverVersion(baseVersion, versions) {
   versions = versions
     .filter((version) => {
-      return semver.satisfies(version, `^${baseVersion}`);
+      return semver.gt(version, baseVersion);
     })
     .sort((a, b) => semver.gt(b, a));
   return versions;
@@ -62,9 +66,10 @@ function getSemverVersion(baseVersion, versions) {
 // 筛选出  大于基础版本的版本号  自动获取所有版本号 并返回最新版本
 async function getNpmSemverVersion(baseVersion, npmName, registry) {
   const versions = await getNpmVersion(npmName, registry);
+
   const newVersions = getSemverVersion(baseVersion, versions);
   if (newVersions && newVersions.length > 0) {
-    return newVersions[0];
+    return newVersions[newVersions.length - 1];
   }
 }
 // 检查指定包的大于指定版本号的情况
@@ -85,33 +90,43 @@ async function checkNpmVersion(npmName, currentVersion) {
 }
 async function checkVersionCommand(program) {
   program
-    .command("npmUpdate")
+    .command("npmUpdate [args...]")
     .description("检查当前目录下的pkg 并选择要检查哪些包的更新")
-    .action(async () => {
+    .action(async (npms) => {
       const {
         packageJson: { dependencies, devDependencies },
       } = await readPkgUp();
+      // 预备命令
+      let updateCommand = "npm update --save ";
 
       const allPkg = { ...dependencies, ...devDependencies };
-      const { updateList } = await inquirer.prompt([
-        {
-          type: "checkbox",
-          name: "updateList",
-          message: "请选择要检查更新的所有包",
-          choices: [
-            new inquirer.Separator(colors.blue("vvv==开发依赖==vvv")),
-            ...Object.keys(dependencies || {}),
-            new inquirer.Separator(colors.blue("vvv==运行依赖==vvv")),
-            ...Object.keys(devDependencies || {}),
-          ].map((key) => {
-            return {
-              name: key,
-              value: key,
-              short: [key] + "==>" + allPkg[key] + "\t",
-            };
-          }),
-        },
-      ]);
+      let updateList = [];
+      // 使用命令行传递的 还是弹出提问
+      if (npms.length > 0) {
+        updateList = npms;
+      } else {
+        const backData = await inquirer.prompt([
+          {
+            type: "checkbox",
+            name: "updateList",
+            message: "请选择要检查更新的所有包",
+            choices: [
+              new inquirer.Separator(colors.blue("vvv==开发依赖==vvv")),
+              ...Object.keys(dependencies || {}),
+              new inquirer.Separator(colors.blue("vvv==运行依赖==vvv")),
+              ...Object.keys(devDependencies || {}),
+            ].map((key) => {
+              return {
+                name: key,
+                value: key,
+                short: [key] + "==>" + allPkg[key] + "\t",
+              };
+            }),
+          },
+        ]);
+        updateList = backData.updateList;
+      }
+      console.log("updateList :>> ", updateList);
       // 全部的promise
       const allCheck = updateList.map((npmItem) => {
         return checkNpmVersion(
@@ -119,10 +134,11 @@ async function checkVersionCommand(program) {
           allPkg[npmItem].replace("^", "").replace("~", "")
         );
       });
+      // 一起请求获取
       const allCheckRes = await axios.all(allCheck);
+      console.log("allCheckRes :>> ", allCheckRes);
       const needUpdate = new Map(allCheckRes.filter((i) => i));
-      // 预备命令
-      let updateCommand = "npm update --save ";
+
       console.log(colors.blue(`需要更新的node包：`));
 
       // 输出提示
@@ -131,14 +147,24 @@ async function checkVersionCommand(program) {
         updateCommand += key + "";
       }
 
-      const { confirm } = await inquirer.prompt([
-        {
-          type: "confirm",
-          name: "confirm",
-          message: "确定要更新这些包吗",
-        },
-      ]);
-      if (confirm) {
+      if (npms.length == 0) {
+        const { confirm } = await inquirer.prompt([
+          {
+            type: "confirm",
+            name: "confirm",
+            message: "确定要更新这些包吗",
+          },
+        ]);
+        if (confirm) {
+          updateMethod();
+        }
+      } else {
+        updateMethod();
+      }
+
+      function updateMethod() {
+        console.log(colors.green("更新中=========>"));
+        console.log("updateCommand :>> ", updateCommand);
         exec(
           updateCommand,
           {
@@ -147,7 +173,7 @@ async function checkVersionCommand(program) {
             encoding: "utf8",
           },
           (error, stdout, stderr) => {
-            console.log(colors.green("更新中=========>"));
+            console.log(error, stdout, stderr);
           }
         );
       }

@@ -15,9 +15,10 @@ function gitCommand(program) {
       }
       // 连续运行命令
       execFunc([
-        "git pull",
+
         "git add .",
         `git commit -m '${commit}'`,
+         "git pull",
         "git push",
       ]);
     })

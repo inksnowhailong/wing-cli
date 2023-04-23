@@ -1,6 +1,7 @@
 "use strict";
 const log = require("@wing-cli/log");
 const fs = require("fs");
+const os = require("os");
 const inquirer = require("inquirer");
 const dedent = require("dedent");
 module.exports = foldercreate;
@@ -43,7 +44,7 @@ function foldercreate(program) {
       if (!name) {
         return log.error("必须指定名字");
       }
-      if (fs.existsSync(process.cwd() + "\\" + name)) {
+      if (fs.existsSync(process.cwd() + fileLine + name)) {
         return log.error("文件夹已存在");
       }
       // //   创建
@@ -52,16 +53,22 @@ function foldercreate(program) {
     })
     .alias("fc");
 }
-
+const platform = os.platform();
+let fileLine = "/";
+if (platform === "win32") {
+  fileLine = "\\";
+} else if (platform === "darwin") {
+  fileLine = "/";
+}
 const templates = {
   // TODO 改为复制文件的模式 建立文件模板
   v3viewMin: {
     desc: "vue3+vite+ts+setup的view模板精简版本，由index.vue和hook目录构成，用于极其简单的功能",
     created(cwd, name) {
-      const basePath = cwd + "\\" + name;
+      const basePath = cwd + fileLine + name;
       fs.mkdirSync(basePath);
       createAndWrite(
-        `${basePath}\\index.vue`,
+        `${basePath}${fileLine}index.vue`,
         dedent`<script setup lang="ts">
 
       </script>
@@ -75,9 +82,9 @@ const templates = {
       </style>
       `
       );
-      fs.mkdirSync(`${basePath}\\hook`);
+      fs.mkdirSync(`${basePath}${fileLine}hook`);
       createAndWrite(
-        `${basePath}\\hook\\index.ts`,
+        `${basePath}${fileLine}hook${fileLine}index.ts`,
         dedent`export const data = {}`
       );
     },
@@ -85,10 +92,10 @@ const templates = {
   v3view: {
     desc: "vue3+vite+ts+setup的view模板，由index.vue和hook目录构成",
     created(cwd, name) {
-      const basePath = cwd + "\\" + name;
+      const basePath = cwd + fileLine + name;
       fs.mkdirSync(basePath);
       createAndWrite(
-        `${basePath}\\index.vue`,
+        `${basePath}${fileLine}index.vue`,
         dedent`<script setup lang="ts">
 
       </script>
@@ -102,9 +109,9 @@ const templates = {
       </style>
       `
       );
-      fs.mkdirSync(`${basePath}\\hook`);
+      fs.mkdirSync(`${basePath}${fileLine}hook`);
       createAndWrite(
-        `${basePath}\\hook\\modal.ts`,
+        `${basePath}${fileLine}hook${fileLine}modal.ts`,
         dedent`/*
         NOTE 只放数据：js原始数据、ref，reactive，computed响应式数据
        */
@@ -116,7 +123,7 @@ const templates = {
         `
       );
       createAndWrite(
-        `${basePath}\\hook\\service.ts`,
+        `${basePath}${fileLine}hook${fileLine}service.ts`,
         dedent`/*
         NOTE 只放函数，包含逻辑功能和业务功能
        */
@@ -134,7 +141,7 @@ const templates = {
        `
       );
       createAndWrite(
-        `${basePath}\\hook\\type.d.ts`,
+        `${basePath}${fileLine}hook${fileLine}type.d.ts`,
         dedent`/*
         NOTE 只放TS类型，除了基础类型外的类型
       */

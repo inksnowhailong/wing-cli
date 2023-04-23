@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/inksnowhailong/wing-cli/issues"
   },
-  "gitHead": "3f610373be44d7006733d65f40d78c10f270029a",
+  "gitHead": "bee191c28bb2e594efa33d68b1d097c1a4a424ce",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
