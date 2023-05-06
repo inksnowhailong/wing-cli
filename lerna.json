@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "useWorkspaces": false,
-  "version": "1.0.12",
+  "version": "1.0.13",
   "packages": [
     "core/*",
     "utils/*"
