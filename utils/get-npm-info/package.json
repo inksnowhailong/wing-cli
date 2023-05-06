@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/get-npm-info",
-  "version": "1.0.14",
+  "version": "1.0.12",
   "description": "get-npm-info",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "https://github.com/inksnowhailong/wing-cli#readme",
@@ -35,5 +35,5 @@
     "semver": "^7.3.8",
     "url-join": "^5.0.0"
   },
-  "gitHead": "1b1117813b23f63804930fb6b39c03fbfee5b694"
+  "gitHead": "100d48ef0a3092a7fc717f5544b81aa2f04b9658"
 }

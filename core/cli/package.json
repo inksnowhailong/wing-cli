@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/core",
-  "version": "1.0.14",
+  "version": "1.0.12",
   "description": "项目开发的僚机，为开发者提供项目的开发服务",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "",
@@ -21,8 +21,8 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@wing-cli/folder-create": "^1.0.14",
-    "@wing-cli/get-npm-info": "^1.0.14",
+    "@wing-cli/folder-create": "^1.0.12",
+    "@wing-cli/get-npm-info": "^1.0.12",
     "@wing-cli/git-command": "^1.0.12",
     "@wing-cli/log": "^1.0.12",
     "@wing-cli/utils": "^1.0.12",
@@ -38,7 +38,7 @@
     "semver": "^7.3.8",
     "user-home": "^3.0.0"
   },
-  "gitHead": "1b1117813b23f63804930fb6b39c03fbfee5b694",
+  "gitHead": "100d48ef0a3092a7fc717f5544b81aa2f04b9658",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
