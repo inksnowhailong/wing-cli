@@ -111,7 +111,7 @@ const templates = {
       );
       fs.mkdirSync(`${basePath}${fileLine}hook`);
       createAndWrite(
-        `${basePath}${fileLine}hook${fileLine}modal.ts`,
+        `${basePath}${fileLine}hook${fileLine}model.ts`,
         dedent`/*
         NOTE 只放数据：js原始数据、ref，reactive，computed响应式数据
        */
@@ -138,6 +138,14 @@ const templates = {
        export function DataUpdate(val: string) {
          data.value = val
        }
+       `
+      );
+      createAndWrite(
+        `${basePath}${fileLine}hook${fileLine}util.ts`,
+        dedent`/*
+        NOTE 工具函数，跟业务无关的，只是处理一些复杂事项的函数，特别是可抽离公用与多个项目的那种
+       */
+
        `
       );
       createAndWrite(

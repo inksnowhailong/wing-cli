@@ -97,7 +97,7 @@ async function checkVersionCommand(program) {
         packageJson: { dependencies, devDependencies },
       } = await readPkgUp();
       // 预备命令
-      let updateCommand = "npm update --save ";
+      let updateCommand = "npm i --save ";
 
       const allPkg = { ...dependencies, ...devDependencies };
       let updateList = [];
@@ -136,15 +136,16 @@ async function checkVersionCommand(program) {
       });
       // 一起请求获取
       const allCheckRes = await axios.all(allCheck);
-      console.log("allCheckRes :>> ", allCheckRes);
       const needUpdate = new Map(allCheckRes.filter((i) => i));
 
+      if (!needUpdate.size) {
+        return console.log(colors.blue(`没有需要更新的包`));
+      }
       console.log(colors.blue(`需要更新的node包：`));
-
       // 输出提示
       for (const [key, version] of needUpdate) {
         console.log(`${key} ==>>  ${version}`);
-        updateCommand += key + "";
+        updateCommand += key + "@" + version + "";
       }
 
       if (npms.length == 0) {
