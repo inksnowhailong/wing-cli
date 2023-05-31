@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/folder-create",
-  "version": "1.0.14",
+  "version": "1.0.13",
   "description": "目录模板快速创建",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "https://github.com/inksnowhailong/wing-cli#readme",
@@ -14,7 +14,7 @@
     "lib"
   ],
   "dependencies": {
-    "@wing-cli/log": "^1.0.14",
+    "@wing-cli/log": "^1.0.13",
     "dedent": "^0.7.0",
     "inquirer": "^8.0.0",
     "read-pkg-up": "7"
