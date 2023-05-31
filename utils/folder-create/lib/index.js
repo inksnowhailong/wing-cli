@@ -70,7 +70,7 @@ const templates = {
       createAndWrite(
         `${basePath}${fileLine}index.vue`,
         dedent`<script setup lang="ts">
-
+        //HACK ScopeInject<{"url":"./hook"}>
       </script>
       <template>
 
@@ -97,7 +97,7 @@ const templates = {
       createAndWrite(
         `${basePath}${fileLine}index.vue`,
         dedent`<script setup lang="ts">
-
+        //HACK ScopeInject<{"url":"./hook"}>
       </script>
       <template>
 
