@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/git-command",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "命令工具核心",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "https://github.com/inksnowhailong/wing-cli#readme",
@@ -28,7 +28,7 @@
     "url": "https://github.com/inksnowhailong/wing-cli/issues"
   },
   "dependencies": {
-    "@wing-cli/log": "^1.0.13",
+    "@wing-cli/log": "^1.0.14",
     "commander": "^10.0.0",
     "find-up": "^4",
     "read-pkg-up": "7"
