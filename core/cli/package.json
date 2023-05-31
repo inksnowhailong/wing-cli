@@ -22,11 +22,11 @@
   },
   "dependencies": {
     "@wing-cli/folder-create": "^1.0.14",
-    "@wing-cli/get-npm-info": "^1.0.13",
-    "@wing-cli/git-command": "^1.0.12",
-    "@wing-cli/log": "^1.0.12",
-    "@wing-cli/utils": "^1.0.12",
-    "@wing-cli/vscode-debugger": "^1.0.12",
+    "@wing-cli/get-npm-info": "^1.0.14",
+    "@wing-cli/git-command": "^1.0.14",
+    "@wing-cli/log": "^1.0.14",
+    "@wing-cli/utils": "^1.0.14",
+    "@wing-cli/vscode-debugger": "^1.0.14",
     "colors": "^1.4.0",
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",
@@ -38,7 +38,7 @@
     "semver": "^7.3.8",
     "user-home": "^3.0.0"
   },
-  "gitHead": "100d48ef0a3092a7fc717f5544b81aa2f04b9658",
+  "gitHead": "9ccf3636f7477ed051fc83f7606ab5ca24b524e1",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

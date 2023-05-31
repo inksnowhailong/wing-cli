@@ -14,7 +14,7 @@
     "lib"
   ],
   "dependencies": {
-    "@wing-cli/log": "^1.0.12",
+    "@wing-cli/log": "^1.0.14",
     "dedent": "^0.7.0",
     "inquirer": "^8.0.0",
     "read-pkg-up": "7"
@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/inksnowhailong/wing-cli/issues"
   },
-  "gitHead": "100d48ef0a3092a7fc717f5544b81aa2f04b9658",
+  "gitHead": "9ccf3636f7477ed051fc83f7606ab5ca24b524e1",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

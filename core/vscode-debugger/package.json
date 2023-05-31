@@ -1,6 +1,6 @@
 {
   "name": "@wing-cli/vscode-debugger",
-  "version": "1.0.12",
+  "version": "1.0.14",
   "description": "vscode 功能设置",
   "author": "墨雪遗痕 <inksnowhailong@gmail.com>",
   "homepage": "https://github.com/inksnowhailong/wing-cli#readme",
@@ -11,7 +11,7 @@
     "test": "__tests__"
   },
   "dependencies": {
-    "@wing-cli/log": "^1.0.12",
+    "@wing-cli/log": "^1.0.14",
     "inquirer": "^8.0.0",
     "load-pkg": "^4.0.0",
     "read-pkg-up": "7"
